@@ -43,6 +43,8 @@ enum {
  MDP_YCRYCB_H2V1,                  // YCrYCb interleave
  MDP_Y_CRCB_H2V1,                  // Y and CrCb, pseduo planer w/ Cr is in MSB
  MDP_Y_CBCR_H2V1,                  // Y and CrCb, pseduo planer w/ Cr is in MSB
+ MDP_Y_CRCB_H1V1,                  /* Y and CrCb, pseduo planer w/ Cr is in MSB */
+	MDP_Y_CBCR_H1V1,                  /* Y and CbCr, pseduo planer w/ Cb is in MSB */
  MDP_RGBA_8888,                    // ARGB 888
  MDP_BGRA_8888,                    // ARGB 888
  MDP_RGBX_8888,                    // RGBX 888
