@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_SPECIFIC_HEADER_PATH := device/htc/msm7x27-common/include
+TARGET_SPECIFIC_HEADER_PATH := device/htc/msm7x27-tiwlan-common/include
 
 # inherit from common msm7x27 Recovery
 -include device/htc/msm7x27-recovery/BoardConfigCommon.mk
@@ -55,7 +55,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/f
 ### Graphics
 # Option for choosing texture target on old adrenos
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
-BOARD_EGL_CFG := device/htc/msm7x27-common/egl.cfg
+BOARD_EGL_CFG := device/htc/msm7x27-tiwlan-common/egl.cfg
 
 COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
 USE_OPENGL_RENDERER := true
