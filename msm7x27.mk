@@ -102,7 +102,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.def.agps.mode=2 \
     ro.ril.hsxpa=2 \
     ro.ril.gprsclass=12 \
-    ro.telephony.ril.v3=signalstrength,skipbrokendatacall
+    ro.telephony.ril.v3=signalstrength
 
 # Interfaces
 PRODUCT_PROPERTY_OVERRIDES += \
