@@ -119,6 +119,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.qctwa.preservebuf=1 \
     debug.hwui.render_dirty_regions=false \
     debug.enabletr=false \
+    debug.composition.type=gpu \
     com.qc.hardware=true \
     com.qc.hdmi_out=false
 
