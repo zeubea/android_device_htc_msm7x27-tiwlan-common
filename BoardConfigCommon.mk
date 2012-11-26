@@ -126,3 +126,8 @@ JS_ENGINE := v8
 HTTP := chrome
 ENABLE_JSC_JIT := true
 ENABLE_WEBGL := true
+
+# Testing Modified libstagefright to use legacy Qualcomm OMX IL libs on ICS for MSM7x27 SoCs
+COMMON_GLOBAL_CFLAGS += -DQCOM_LEGACY_OMX
+
+
