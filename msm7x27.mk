@@ -83,6 +83,10 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     Superuser
 
+# CM File Manager
+PRODUCT_PACKAGES += \
+    CMFileManager
+
 ### Add system daemons
 PRODUCT_PACKAGES += \
     rild
