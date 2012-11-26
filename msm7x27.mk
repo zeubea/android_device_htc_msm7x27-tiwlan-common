@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/msm7x27-common/overlay
+DEVICE_PACKAGE_OVERLAYS += device/htc/msm7x27-tiwlan-common/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -34,19 +34,19 @@ PRODUCT_COPY_FILES += \
 
 # USB
 PRODUCT_COPY_FILES += \
-    device/htc/msm7x27-common/init.msm7x27.usb.rc:root/init.msm7x27.usb.rc
+    device/htc/msm7x27-tiwlan-common/init.msm7x27.usb.rc:root/init.msm7x27.usb.rc
 
 # Media
 PRODUCT_COPY_FILES += \
-    device/htc/msm7x27-common/libaudio/audio_policy.conf:system/etc/audio_policy.conf \
-    device/htc/msm7x27-common/media_codecs.xml:system/etc/media_codecs.xml \
-    device/htc/msm7x27-common/media_profiles.xml:system/etc/media_profiles.xml
+    device/htc/msm7x27-tiwlan-common/libaudio/audio_policy.conf:system/etc/audio_policy.conf \
+    device/htc/msm7x27-tiwlan-common/media_codecs.xml:system/etc/media_codecs.xml \
+    device/htc/msm7x27-tiwlan-common/media_profiles.xml:system/etc/media_profiles.xml
 
 # Common msm7x27 firmware
 PRODUCT_COPY_FILES += \
-    device/htc/msm7x27-common/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
-    device/htc/msm7x27-common/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
-    device/htc/msm7x27-common/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
+    device/htc/msm7x27-tiwlan-common/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
+    device/htc/msm7x27-tiwlan-common/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
+    device/htc/msm7x27-tiwlan-common/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
 
 # Audio
 PRODUCT_PACKAGES += \
