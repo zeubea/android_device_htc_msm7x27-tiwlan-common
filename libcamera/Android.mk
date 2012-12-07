@@ -1,3 +1,5 @@
+$(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libcamera_intermediates)
+$(shell touch $(OUT)/obj/SHARED_LIBRARIES/libcamera_intermediates/export_includes)
 
 LOCAL_PATH := $(call my-dir)
 
