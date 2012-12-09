@@ -48,28 +48,28 @@ PRODUCT_COPY_FILES += \
     device/htc/msm7x27-tiwlan-common/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
     device/htc/msm7x27-tiwlan-common/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
 
+# CM Boot Animation
+PRODUCT_COPY_FILES += \
+   vendor/cm/prebuilt/common/bootanimation/320.zip:system/media/bootanimation.zip 
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio_policy.msm7x27 \
     audio.primary.msm7x27 \
-    libtinyalsa \
     libaudioutils
-
 # Video
 PRODUCT_PACKAGES += \
     copybit.msm7x27 \
     gralloc.msm7x27 \
     hwcomposer.msm7x27 \
     libgenlock \
-    libmemalloc \
     liboverlay \
-    libqdutils \
     libtilerenderer
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm7x27
+    LegacyCamera
 
 # QCOM OMX
 PRODUCT_PACKAGES += \
@@ -83,6 +83,22 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     Superuser
 
+PRODUCT_PACKAGES += \
+    librs_jni
+
+PRODUCT_PACKAGES += \
+    wpa_supplicant.conf
+
+
+PRODUCT_PACKAGES += \
+    icu.dat
+
+PRODUCT_PACKAGES += \
+    local_time.default
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.carrier=unknown
+
 # CM File Manager
 PRODUCT_PACKAGES += \
     CMFileManager
@@ -91,10 +107,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     rild
 
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
+
+### Add dhcpcd.conf
+PRODUCT_PACKAGES += \
+    dhcpcd.conf
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -119,6 +140,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=160 \
     ro.opengles.version=131072 \
     debug.sf.hw=1 \
+    debug.sf.no_hw_vsync=1 \
     debug.qctwa.statusbar=1 \
     debug.qctwa.preservebuf=1 \
     debug.hwui.render_dirty_regions=false \
@@ -140,15 +162,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     settings.display.autobacklight=1 \
     settings.display.brightness=143 \
     persist.service.mount.playsnd=0 \
-    ro.com.google.locationfeatures=1 \
-    ro.setupwizard.mode=OPTIONAL \
-    ro.setupwizard.enable_bypass=1 \
+    ro.setupwizard.enterprise_mode=1 \
     ro.media.dec.aud.wma.enabled=1 \
     ro.media.dec.vid.wmv.enabled=1 \
     dalvik.vm.dexopt-flags=m=y \
     ro.config.sync=yes \
     persist.sys.usb.config=mass_storage,adb \
-    dalvik.vm.dexopt-data-only=1
+    dalvik.vm.dexopt-data-only=1 
 
 # We have enough storage space to hold precise GC data
 #PRODUCT_TAGS += dalvik.gc.type-precise
