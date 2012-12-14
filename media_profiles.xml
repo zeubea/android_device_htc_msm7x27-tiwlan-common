@@ -89,11 +89,11 @@
     <!-- Each camcorder profile defines a set of predefined configuration parameters -->
     <CamcorderProfiles cameraId="0">
 
-        <EncoderProfile quality="high" fileFormat="mp4" duration="60">
-            <Video codec="h263"
-                   bitRate="3000000"
-                   width="640"
-                   height="480"
+        <EncoderProfile quality="480p" fileFormat="3gp" duration="60">
+            <Video codec="m4v"
+                   bitRate="1600000"
+                   width="480"
+                   height="320"
                    frameRate="15" />
             <Audio codec="amrnb"
                    bitRate="12200"
@@ -103,7 +103,7 @@
 
         <EncoderProfile quality="low" fileFormat="3gp" duration="30">
             <Video codec="m4v"
-                   bitRate="256000"
+                   bitRate="1600000"
                    width="176"
                    height="144"
                    frameRate="15" />
@@ -113,10 +113,10 @@
                    channels="1" />
         </EncoderProfile>
 
-        <ImageEncoding quality="90" />
+        <ImageEncoding quality="100" />
+        <ImageEncoding quality="90" /> 
         <ImageEncoding quality="80" />
-        <ImageEncoding quality="70" />
-        <ImageDecoding memCap="20000000" />
+        <ImageDecoding memCap="30000000" />
 
         <Camera previewFrameRate="0" />
 
