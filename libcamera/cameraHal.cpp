@@ -105,6 +105,8 @@ CameraHAL_CopyBuffers_Hw(int srcFd, int destFd,
     int    fb_fd = open("/dev/graphics/fb0", O_RDWR);
 
 #ifndef MSM_COPY_HW
+    if (fb_fd > 0)
+        close(fb_fd);
     return false;
 #endif
 
@@ -431,6 +433,7 @@ CameraHAL_FixupParams(android::CameraParameters &settings)
    settings.set(android::CameraParameters::KEY_VIDEO_FRAME_FORMAT,
                 android::CameraParameters::PIXEL_FORMAT_YUV420SP);
 
+
    if (!settings.get(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES)) {
       settings.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
                    preview_sizes);
@@ -444,7 +447,10 @@ CameraHAL_FixupParams(android::CameraParameters &settings)
 #endif
 
    if (!settings.get(android::CameraParameters::KEY_VIDEO_SIZE)) {
+      settings.set("record-size", preferred_size);
       settings.set(android::CameraParameters::KEY_VIDEO_SIZE, preferred_size);
+   } else {
+      settings.set("record-size", settings.get(android::CameraParameters::KEY_VIDEO_SIZE));
    }
 
    if (!settings.get(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO)) {
@@ -551,9 +557,11 @@ qcamera_start_preview(struct camera_device * device)
    ALOGV("qcamera_start_preview: Preview enabled:%d msg enabled:%d\n",
         qCamera->previewEnabled(),
         qCamera->msgTypeEnabled(CAMERA_MSG_PREVIEW_FRAME));
+
    if (!qCamera->msgTypeEnabled(CAMERA_MSG_PREVIEW_FRAME)) {
-        qCamera->enableMsgType(CAMERA_MSG_PREVIEW_FRAME);
+       qCamera->enableMsgType(CAMERA_MSG_PREVIEW_FRAME);
    }
+
    return qCamera->startPreview();
 }
 
@@ -566,6 +574,7 @@ qcamera_stop_preview(struct camera_device * device)
    if (qCamera->msgTypeEnabled(CAMERA_MSG_PREVIEW_FRAME)) {
       qCamera->disableMsgType(CAMERA_MSG_PREVIEW_FRAME);
    }
+
    return qCamera->stopPreview();
 }
 
@@ -656,6 +665,7 @@ qcamera_take_picture(struct camera_device * device)
                          CAMERA_MSG_COMPRESSED_IMAGE);
 
    qCamera->takePicture();
+
    return NO_ERROR;
 }
 
@@ -824,3 +834,4 @@ qcamera_device_open(const hw_module_t* module, const char* name,
    *device = &camera_device->common;
    return NO_ERROR;
 }
+
