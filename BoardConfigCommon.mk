@@ -94,7 +94,10 @@ USE_CAMERA_STUB := false
 
 ### Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-#BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+
+BOARD_BLUEDROID_VENDOR_CONF := device/htc/msm7x27-tiwlan-common/bluetooth/vnd_msm7x27.txt
+
 
 ### FM radio
 BOARD_HAVE_FM_RADIO := true
